@@ -1,0 +1,56 @@
+Life Cycle
+Sem middlewares
+Request -> Controller -> Respose
+
+Com middlewares
+Request <-> MiddleWare -> Controller -> Response
+
+
+Sequência estrutural do projeto
+
+index.js{
+    faz a chamada das rotas -> {
+        routes.js{
+            faz a chamada das funções controllers -> {
+
+                controllers.js-> {
+                     faz a chamada das funções de pesquisa no banco->{
+
+                        index.js/database ->{
+                            fornece os dados do banco de dados para as funções de pesquisa
+                        }
+                     }
+                }
+
+            }
+        }
+    }
+}
+
+Para rodar o docker:
+* Iniciar app do docker
+* Na pasta:
+        docker ps
+* Para visualizar os containers rodando:
+        docker ps -a
+* Para rodar o container
+        docker start ---nome do container"
+        Ex:
+        docker start pg
+
+//SOP -> Same Origin Policy -> Política de mesma origem
+//CORS -> Cross-Origin Resource Sharing -> Compartilhamento de recursos entre
+origens cruzadas
+
+//containers
+
+//Origem: protocolo://dominio:porta
+
+//Saída:   http://localhost:300
+//Destino: http://localhost:3001
+
+Artigo para requisições utilizando o Cors:
+https://developer.mozilla.org/pt-BR/docs/Web/HTTP/CORS
+
+Artigo para tipos de erros:
+https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status

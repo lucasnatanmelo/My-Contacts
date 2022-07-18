@@ -1,0 +1,48 @@
+Anotações:
+Instalar:
+    edtorconfig
+    eslint
+Instalar esLint como dev dependecies:
+yarn add eslint -D
+
+Para inicializar:
+yarn eslint --init
+
+Adicionar styled-component:
+yarn add styled-components
+
+Para gerar paleta de cores - estilização:
+https://smart-swatch.netlify.app/#ffa800
+
+Para instalar o PropTypes:
+yarn add prop-types
+
+Aula importante - Regra de negócio no front ou no
+back end:
+    Revisar pontos importante
+
+-> Truthy
+-> Falsy:
+    - 0, null, false, NaN, undefined, ''
+
+Acrescentar validadores no telefone e categoria
+
+Para mudar a porta:
+package.json ->"start": "set PORT=3001 && react-scripts start"
+
+Revisar o hook useErrors
+
+Para adicionar corretor de erros do EsLint:
+yarn add eslint-plugin-react-hooks -D
+
+Para entender os erros de promises - Aula Tratando os erros retornados pela API
+
+
+
+Link do projeto:
+https://www.figma.com/file/zhAwjW2RimyjccDgiY6luz/MyContacts?node-id=999%3A3
+
+Link para otimizar imagens svg:
+https://jakearchibald.github.io/svgomg/
+
+// Mostrar os diferentes erros para o usuário
