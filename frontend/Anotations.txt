@@ -46,3 +46,19 @@ Link para otimizar imagens svg:
 https://jakearchibald.github.io/svgomg/
 
 // Mostrar os diferentes erros para o usuário
+
+
+Aula useMemo vs useCallback: analisando o código fonte do React
+useMemo vs useCallback:
+    useMemo: utilizar sempre quando for armazenar informações e dados
+    useCallback: utilizar sempre quando for armazenar funções
+
+Implementar crud de categorias
+
+Adicionar camada de erro nas categorias, caso aconteça um erro
+
+Para instalar svgo:
+    npm -g install svgo
+
+// Reassistir aulas da criação de toast:
+    - Por que vamos criar os nossos próprios event listeners
