@@ -62,3 +62,10 @@ Para instalar svgo:
 
 // Reassistir aulas da criação de toast:
     - Por que vamos criar os nossos próprios event listeners
+
+Exemplo de prop enviada de filho para pai em ToastMessage para ToastContainer
+
+// Importante: Apagar os timeouts assim que finalizarem
+
+*** Revisar ***
+- Todos os conceitos de useEffect, useRef, useCallback, useMemo - Todos os hooks

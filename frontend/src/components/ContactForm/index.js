@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
+import {
+ useState, useEffect, forwardRef, useImperativeHandle,
+} from 'react';
 
 import isEmailValid from '../utils/isEmailValid';
 import formatPhone from '../utils/formatPhone';
@@ -12,30 +14,41 @@ import FormGroup from '../FormGroup';
 import Input from '../Input/styles';
 import Select from '../Select/styles';
 import Button from '../Button';
+import useSafeAsyncState from '../../hooks/useSafeAsyncState';
 
-// Controlled Components - Será utilizado nesse projeto
-// Uncontrolled Components
-
-// A prop buttonLabel é dinâmica, vindo de New Contact ou Edit Contact
-
-export default function ContactForm({ buttonLabel, onSubmit }) {
+const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [categoryId, setCategoryId] = useState('');
-    const [categories, setCategories] = useState([]);
-    const [isLoadingCategories, setIsLoadingCategories] = useState(true);
+    const [categories, setCategories] = useSafeAsyncState([]);
+    const [isLoadingCategories, setIsLoadingCategories] = useSafeAsyncState(true);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const {
-    errors,
-    setError,
-    removeError,
-    getErrorMessageByFieldName,
+        errors,
+        setError,
+        removeError,
+        getErrorMessageByFieldName,
     } = useErrors();
 
     // Lógica: isFormValid será true se o form ter um nome a array de erro for vazia
     const isFormValid = (name && errors.length === 0);
+
+    useImperativeHandle(ref, () => ({
+        setFieldsValues: (contact) => {
+            setName(contact.name ?? '');
+            setEmail(contact.email ?? '');
+            setPhone(formatPhone(contact.phone ?? ''));
+            setCategoryId(contact.categroy_id ?? '');
+        },
+        resetFields: () => {
+            setName('');
+            setEmail('');
+            setPhone('');
+            setCategoryId('');
+        },
+    }), []);
 
     useEffect(() => {
         async function loadCategories() {
@@ -51,7 +64,7 @@ export default function ContactForm({ buttonLabel, onSubmit }) {
         }
 
         loadCategories();
-    }, []);
+    }, [setCategories, setIsLoadingCategories]);
 
     function handleNameChange(event) {
         setName(event.target.value);
@@ -162,13 +175,11 @@ export default function ContactForm({ buttonLabel, onSubmit }) {
 
       </Form>
     );
-}
-
-// Na estrutura de FormGroup é repassado o valor de children
-// Logo, children, será o Input
-// Para demonstração dos event listeners, Aula: Atribuindo eventos a campos de forms
+});
 
 ContactForm.propTypes = {
     buttonLabel: PropTypes.string.isRequired,
     onSubmit: PropTypes.func.isRequired,
 };
+
+export default ContactForm;

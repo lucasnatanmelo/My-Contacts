@@ -105,7 +105,7 @@ class ContactController {
       category_id: category_id || null,
     });
 
-    response.json(contact);
+    response.status(200).json(contact);
   }
 
   // Deletar um registro
