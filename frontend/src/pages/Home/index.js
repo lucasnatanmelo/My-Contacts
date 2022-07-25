@@ -22,7 +22,6 @@ import Modal from '../../components/Modal';
 
 import ContactsService from '../../services/ContactsService';
 import toast from '../../components/utils/toast';
-// import Modal from '../../components/Modal';
 
 export default function Home() {
     const [contacts, setContacts] = useState([]);
@@ -63,7 +62,7 @@ export default function Home() {
         loadContacts();
     }, [loadContacts]);
 
-    console.log('contacts: ', contacts);
+    // console.log('contacts: ', contacts);
 
     // Lembre-se que o valor de orderBy nunca é acessado pelo valor orderBy
     // Deve ser acessado pelo prevState por ser uma função assíncrona
@@ -205,6 +204,7 @@ export default function Home() {
         )}
 
           {filteredContacts.map((contact) => (
+
             <Card key={contact.id}>
               <div className="info">
                 <div className="contact-name">

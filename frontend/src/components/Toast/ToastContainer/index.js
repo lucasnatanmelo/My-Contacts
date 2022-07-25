@@ -13,8 +13,11 @@ export default function ToastContainer() {
             setMessages((prevState) => [
                 ...prevState,
                 {
- id: Math.random(), type, text, duration,
-},
+                    id: Math.random(),
+                    type,
+                    text,
+                    duration,
+                },
             ]);
         }
 

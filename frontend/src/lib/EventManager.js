@@ -38,8 +38,8 @@ export default class EventManager {
     }
 }
 
-const toastEventMager = new EventManager();
-console.log({ toastEventMager });
+// const toastEventMager = new EventManager();
+// console.log({ toastEventMager });
 
 // Utilizando o object normal {}
 // export default class EventManager {

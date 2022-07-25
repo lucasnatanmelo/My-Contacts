@@ -24,6 +24,7 @@ export default function EditContact() {
                 const contact = await ContactsService.getContactById(
                     id,
                 );
+                // console.log(contact);
                     safeAsyncAction(() => {
                         contactFormRef.current.setFieldsValues(contact);
                         setIsLoading(false);
@@ -48,9 +49,9 @@ export default function EditContact() {
                 name: formData.name,
                 email: formData.email,
                 phone: formData.phone,
-                categroy_id: formData.categoryId,
+                category_id: formData.categoryId,
             };
-            console.log({ id, contact });
+            // console.log({ id, contact });
             const contactData = await ContactsService.updateContact(
                 id,
                 contact,
